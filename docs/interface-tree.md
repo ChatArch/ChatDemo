@@ -1,23 +1,28 @@
 # Python 接口树
 
-`ChatDemo` 的 CLI 应保持薄入口；实质能力应放在可 import 的 Python 函数、类或 service 层里。
+`ChatDemo` 是用于验证 Python 包发布流程的最小模板，目前不提供业务服务或外部 API 调用。
 
 ## 包入口
 
 ```python
 from chatdemo import __version__
+from chatdemo.cli import main
+from chatdemo.config import ChatdemoConfig
 ```
 
-## 待补接口
+## 已实现接口
 
 ```text
 chatdemo
-├── cli.py          # Click 入口，只做参数解析和输出
-└── <service>.py    # 放包的核心可调用能力
+├── __init__.py     # 导出 __version__
+├── cli.py          # Click 入口：帮助、版本与命令树
+└── config.py       # ChatEnv 配置模板与无网络副作用的 schema 检查
 ```
 
-## 更新清单
+`ChatdemoConfig` 通过 `chatenv.configs` 注册。模板中的配置字段不表示已经实现外部服务；当前无需配置密钥即可运行版本和命令树命令。
 
-- 每个实质 CLI 命令都要能映射到 importable API。
-- 文档里的函数签名应和代码一致。
-- 对外输出默认不要泄漏 token、cookie、内部 URL 或人员信息。
+## 扩展约定
+
+- 实质能力放在可导入的 Python 函数或类中，CLI 保持薄入口。
+- 文档签名与实际代码保持一致。
+- 凭据和运行态会话留在受控配置存储中，不写入源码或输出。
