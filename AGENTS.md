@@ -2,7 +2,7 @@
 
 ## Workgroup Baseline
 
-- Keep a local `.env` for each task/workgroup when credentials, proxies, or service endpoints are needed; do not commit it and never print secret values.
+- Keep credentials in the approved ChatEnv profiles and runtime token store under the effective ChatArch home. Reuse the workspace's network configuration; do not create task-local secret copies or print secret values.
 - Load project-local skills or instructions before editing. Treat this file as the repository-level baseline and add narrower notes only when the package needs them.
 - Preserve user or worker changes in dirty checkouts. Use a clean worktree or branch when a release needs an isolated state.
 
