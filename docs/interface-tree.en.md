@@ -1,28 +1,35 @@
-# Python Interface Tree
-
-`ChatDemo` is a minimal template for verifying Python package releases. It does not implement business services or external API calls.
-
-## Package entry points
-
-```python
-from chatdemo import __version__
-from chatdemo.cli import main
-from chatdemo.config import ChatdemoConfig
-```
-
-## Implemented interfaces
+# Python API tree
 
 ```text
 chatdemo
-├── __init__.py     # Exports __version__
-├── cli.py          # Click entry: help, version, and command trees
-└── config.py       # ChatEnv template and network-free schema check
++-- __version__
++-- cli.main                       # Click adapter
++-- config.ChatdemoConfig          # Existing ChatEnv schema
++-- hosting.Demo                   # Demo metadata
++-- hosting.list_demos(home=None)
++-- hosting.add_demo(directory, slug, title, description="", home=None)
++-- hosting.remove_demo(slug, home=None)
++-- hosting.export_site(destination, home=None)
++-- hosting.create_server(host="127.0.0.1", port=8769, home=None)
 ```
 
-`ChatdemoConfig` is registered through `chatenv.configs`. Its placeholder field does not imply an implemented external service. Version and command-tree commands do not require a configured API key.
+## Reusable calls
 
-## Extension contract
+```python
+from pathlib import Path
+from chatdemo.hosting import add_demo, export_site, list_demos, create_server
 
-- Put substantive capabilities in importable Python functions or classes and keep CLI entry points thin.
-- Keep documented signatures aligned with the implementation.
-- Keep credentials and runtime sessions in the approved configuration store, never in source or command output.
+home = Path("./catalog")
+add_demo(Path("./public"), "my-demo", "My demo", home=home)
+for demo in list_demos(home):
+    print(demo.summary())
+export_site(Path("./site-output"), home=home)
+
+server = create_server(home=home, port=8769)
+try:
+    server.serve_forever()
+finally:
+    server.server_close()
+```
+
+Invalid catalog inputs raise `ValueError`; filesystem and network errors retain `OSError`. `Demo.summary()` omits local source paths. The CLI is a thin adapter. `ChatdemoConfig` remains registered with ChatEnv; Web features do not consume the template API key.

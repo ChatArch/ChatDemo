@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>机巧 · 三种机械设计</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#">机巧<span>MECHANICAL ATELIER</span></a>
+    <span class="edition">机械设计研究 <b>02</b></span>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">SPRINGS. GEARS. RHYTHM.</p><h1>看得见的<span>机械秩序。</span></h1></div>
+      <p class="intro-copy">一枚发条，几组齿轮，三种运动性格。<br>先转起来，再决定哪一台值得做成作品。</p>
+    </section>
+    <section class="workbench" aria-label="机械设计工作台">
+      <aside class="choices">
+        <p class="section-label">选择一台机械</p>
+        <div role="tablist" aria-label="三个设计方向" class="design-tabs">
+          <button id="tab-geneva" role="tab" aria-selected="true" aria-controls="design-panel" data-model="geneva" class="design selected"><span class="index">01</span><span class="choice-text"><strong>六瓣星轮</strong><small>连续传动，间歇分度</small></span><span class="arrow">↗</span></button>
+          <button id="tab-pendulum" role="tab" aria-selected="false" aria-controls="design-panel" data-model="pendulum" class="design"><span class="index">02</span><span class="choice-text"><strong>双摆擒纵</strong><small>一松一锁，往复节律</small></span><span class="arrow">↗</span></button>
+          <button id="tab-planetary" role="tab" aria-selected="false" aria-controls="design-panel" data-model="planetary" class="design"><span class="index">03</span><span class="choice-text"><strong>行星差速</strong><small>多轴公转，同心层叠</small></span><span class="arrow">↗</span></button>
+        </div>
+        <div class="material-note"><span class="material-swatch"></span><p>黄铜 · 深蓝钢 · 银色轴件<br><small>开放结构 / 发条储能</small></p></div>
+        <a class="plan-link" href="design-notes.md" target="_blank" rel="noopener">查看六瓣星轮设计方案 ↗</a>
+      </aside>
+      <div class="viewer-panel" id="design-panel" role="tabpanel" aria-labelledby="tab-geneva">
+        <div class="viewer-top"><span id="model-code">STUDY 01 / GENEVA</span><span class="live-indicator"><i></i><span id="motion-state">运行中</span></span></div>
+        <div class="viewport" id="viewport">
+          <div id="loading" role="status">正在装配机械…</div>
+          <div class="labels" id="labels" aria-hidden="true"></div>
+          <p class="drag-hint">拖动看角度 · 滚动缩放</p>
+        </div>
+        <div class="camera-controls" aria-label="查看结构">
+          <button id="front-view">正面</button><button id="angle-view" aria-pressed="true">斜侧</button>
+          <button id="explode" aria-pressed="false">拆开看结构</button><button id="show-labels" aria-pressed="true">部件标注</button>
+        </div>
+        <div class="playback">
+          <button id="play" class="play-button" aria-pressed="true">暂停</button>
+          <button id="wind" class="wind-button">手动推进</button>
+          <label class="speed">速度 <input id="speed" type="range" min="0.2" max="1.5" step="0.05" value="0.55"><output id="speed-value">0.55×</output></label>
+        </div>
+      </div>
+      <aside class="design-info" aria-live="polite">
+        <p class="section-label">结构与运动</p>
+        <h2 id="model-name">六瓣星轮</h2>
+        <p id="model-description" class="description"></p>
+        <ol id="parts" class="parts"></ol>
+        <div class="motion-note"><span id="feature-label"></span><strong id="feature-value"></strong><p id="feature-note"></p></div>
+        <p class="concept-note">机械运动学原型<br>接触力与加工公差尚未验证</p>
+      </aside>
+    </section>
+    <section class="design-footnote"><span>DESIGNED TO BE UNDERSTOOD</span><p>齿轮按传动比转动。拆开结构，可以看到前后层次与同轴传动。</p><span>01 — 03</span></section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

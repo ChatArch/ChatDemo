@@ -1,65 +1,36 @@
-<div align="center">
-    <a href="https://pypi.python.org/pypi/ChatDemo">
-        <img src="https://img.shields.io/pypi/v/ChatDemo.svg" alt="PyPI version" />
-    </a>
-    <a href="https://github.com/ChatArch/ChatDemo/actions/workflows/ci.yml">
-        <img src="https://github.com/ChatArch/ChatDemo/actions/workflows/ci.yml/badge.svg" alt="Tests" />
-    </a>
-    <a href="https://arch.gh.wzhecnu.cn/ChatDemo/">
-        <img src="https://img.shields.io/badge/docs-mkdocs-blue.svg" alt="Documentation" />
-    </a>
-</div>
-
-<div align="center">
-
-[English](README.en.md) | [简体中文](README.md)
-</div>
-
 # ChatDemo
 
-Minimal ChatArch Python package release workflow demonstration.
+ChatDemo registers, serves and exports static Web demonstrations. Its bundled Mechanical Atelier contains three interactive mechanisms: a Geneva wheel, a double-pendulum escapement and a planetary differential.
 
-
-Documentation entry: <https://arch.gh.wzhecnu.cn/ChatDemo/en/>
-
-Choose documentation by scenario:
-
-| Scenario | Document |
+| Task | Entry |
 | --- | --- |
-| Install the package, run the CLI, and confirm it works | `docs/cli-tree.en.md` |
-| Check first-class capabilities and current boundaries | `docs/capability-map.en.md` |
-| Call package behavior directly from Python | `docs/interface-tree.md` |
-
-## Quick Start
+| Run a local gallery | `chatdemo serve` |
+| Register a Web artifact | `chatdemo add ./public --slug my-demo --title "My demo"` |
+| Export for a static host | `chatdemo export ./site-output` |
+| Read documentation | [Documentation](https://arch.gh.wzhecnu.cn/ChatDemo/en/) |
 
 ```bash
-pip install -e ".[dev]"
-chatdemo --help
-chatdemo --version
-chatdemo --tree
-chatdemo --tree-brief
-python -m pytest -q
-python -m build
+python -m pip install -e .
+chatdemo list
+chatdemo serve --port 8769
 ```
 
-## CLI Contract
+Open `http://127.0.0.1:8769/`. Development source can be installed with `python -m pip install -e ".[dev,docs]"`. The server binds to loopback by default. Restart it after catalog changes. A registered directory must contain `index.html` and must contain no hidden files or symbolic links. Include only assets intended for publication.
 
-This template depends on `chatstyle>=0.2.0,<0.3.0` and `chatenv>=0.2.11,<0.3.0`. New commands should prefer:
+```bash
+chatdemo --home ./demo-catalog add ./public --slug my-demo --title "My demo"
+chatdemo --home ./demo-catalog list --json-output
+chatdemo --home ./demo-catalog serve
+chatdemo --home ./demo-catalog export ./site-output
+chatdemo --home ./demo-catalog remove my-demo
+```
 
-- `add_tree_option()` for shared `--tree` / `--tree-brief` flags and `render_click_tree()` to render registered Click metadata.
-- `CommandSchema` / `CommandField` for inputs.
-- `add_interactive_option()` for the shared `-i/-I` switch.
-- `resolve_command_inputs()` for missing args, defaults, TTY behavior, and validation.
-- Generate `config.py` and a `chatenv.configs` entry point by default so the package is ChatEnv-discoverable; use `--without-chatenv-provider` only when ChatEnv integration is intentionally not needed.
+Exports require an empty destination and use relative links suitable for subpath hosting. Removal unregisters a demo and preserves its source. The default catalog is `~/.chatarch/chatdemo/catalog.json`; it is application data, separate from ChatEnv credentials. No API key is required for Web hosting.
 
-## Layout
+See the [CLI tree](https://arch.gh.wzhecnu.cn/ChatDemo/en/cli-tree/), [capability map](https://arch.gh.wzhecnu.cn/ChatDemo/en/capability-map/), [Python API](https://arch.gh.wzhecnu.cn/ChatDemo/en/interface-tree/) and [Chinese README](README.md).
 
-- `src/`: package source code
-- `tests/code-tests/`: code tests and migrated historical tests
-- `tests/cli-tests/`: real CLI tests, doc-first
-- `tests/mock-cli-tests/`: mock/fake CLI tests, doc-first
-- `docs/`: long-lived project docs built by mkdocs
+This static server does not build frontend projects, execute backends or authenticate users. Use a static hosting platform or an authenticated TLS proxy for production. The bundled mechanisms are visual prototypes, not manufactured or physically verified machines.
 
-## Development Notes
+`add`, `remove` and `export` use ChatStyle `-i/-I` interaction. Missing recoverable inputs prompt in a TTY. `-I` or `CHATARCH_AUTO_PROMPT=0` disables automatic prompting and fails on missing inputs. Both paths use the same catalog validation.
 
-See `DEVELOP.md` and `AGENTS.md` before expanding the scaffold.
+Web hosting is available in the 0.0.3 source version; install from its repository root. Published PyPI 0.0.2 is the release-workflow template. PyPI installation of Web commands requires the 0.0.3 release.

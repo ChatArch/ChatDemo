@@ -1,28 +1,35 @@
 # Python 接口树
 
-`ChatDemo` 是用于验证 Python 包发布流程的最小模板，目前不提供业务服务或外部 API 调用。
-
-## 包入口
-
-```python
-from chatdemo import __version__
-from chatdemo.cli import main
-from chatdemo.config import ChatdemoConfig
-```
-
-## 已实现接口
-
 ```text
 chatdemo
-├── __init__.py     # 导出 __version__
-├── cli.py          # Click 入口：帮助、版本与命令树
-└── config.py       # ChatEnv 配置模板与无网络副作用的 schema 检查
++-- __version__
++-- cli.main                       # Click 适配层
++-- config.ChatdemoConfig          # 既有 ChatEnv schema 入口
++-- hosting.Demo                   # 作品元数据
++-- hosting.list_demos(home=None)
++-- hosting.add_demo(directory, slug, title, description="", home=None)
++-- hosting.remove_demo(slug, home=None)
++-- hosting.export_site(destination, home=None)
++-- hosting.create_server(host="127.0.0.1", port=8769, home=None)
 ```
 
-`ChatdemoConfig` 通过 `chatenv.configs` 注册。模板中的配置字段不表示已经实现外部服务；当前无需配置密钥即可运行版本和命令树命令。
+## 可复用调用
 
-## 扩展约定
+```python
+from pathlib import Path
+from chatdemo.hosting import add_demo, export_site, list_demos, create_server
 
-- 实质能力放在可导入的 Python 函数或类中，CLI 保持薄入口。
-- 文档签名与实际代码保持一致。
-- 凭据和运行态会话留在受控配置存储中，不写入源码或输出。
+home = Path("./catalog")
+add_demo(Path("./public"), "my-demo", "我的作品", home=home)
+for demo in list_demos(home):
+    print(demo.summary())
+export_site(Path("./site-output"), home=home)
+
+server = create_server(home=home, port=8769)
+try:
+    server.serve_forever()
+finally:
+    server.server_close()
+```
+
+目录函数遇到不合法输入抛出 `ValueError`；文件与网络错误保留 `OSError`。`Demo.summary()` 不输出源目录的本机路径。CLI 是这些接口的薄适配层。`ChatdemoConfig` 仍注册到 ChatEnv；Web 功能不读取模板 API 密钥。

@@ -1,60 +1,49 @@
-# ChatDemo Docs
+# ChatDemo · Web demonstration catalog
 
-ChatDemo is a ChatArch Python package. This documentation site should hold long-lived usage notes, a command map, a capability map, and Python interface entry points. After scaffolding, replace placeholders with behavior that is actually implemented, explored, or planned for this package.
-
-Site entry: <https://arch.gh.wzhecnu.cn/ChatDemo/en/>
-
-## Choose Documentation by Scenario
-
-| Scenario | Document |
-| --- | --- |
-| Install the package, run the CLI, and confirm it works | [CLI Tree](cli-tree.md) |
-| Check first-class capabilities and current boundaries | [Capability Map](capability-map.md) |
-| Call package behavior directly from Python | [Python Interface Tree](interface-tree.md) |
-
-## Documentation Organization
-
-This template keeps only durable documentation entry points; it does not generate a plan placeholder:
-
-- **CLI tree**: the most direct command entry point, including the real command tree, status, and update checklist.
-- **Capability map**: first-class capabilities, boundaries, and out-of-scope areas.
-- **Interface tree**: importable Python APIs behind the CLI.
-
-## Primary Entry Points
+Organize generated Web artifacts into a gallery that can be explored locally and exported for static hosting.
 
 <div class="grid cards" markdown>
 
-- **CLI Tree**
+- **Explore locally**
 
-    Start from the CLI entry point and record implemented commands, command status, and interactive conventions.
+    Run `chatdemo serve` to open the bundled mechanical prototypes.
 
-    [Open CLI Tree](cli-tree.md)
+    [Explore demonstrations](gallery.md)
 
-- **Capability Map**
+- **Register your work**
 
-    Review current package boundaries and avoid presenting planned work as implemented behavior.
+    Add a static directory and give it a stable browser path.
 
-    [Open Capability Map](capability-map.md)
+    [Read the CLI tree](cli-tree.md)
 
-- **Python Interface Tree**
+- **Export a complete site**
 
-    Keep the CLI thin and put substantive behavior in importable Python APIs.
+    Export the gallery and its assets, then deploy with a static host.
 
-    [Open Interface Tree](interface-tree.md)
+    [Check capabilities](capability-map.md)
+
+- **Call from Python**
+
+    Use catalog, export and server functions without subprocesses.
+
+    [Read the API tree](interface-tree.md)
 
 </div>
 
-## Documentation Status
-
-- **Implemented**: code, tests, or CLI routes exist.
-- **Verified**: covered by local smoke, CI, or real-service practice.
-- **Not implemented**: keep as boundary and planning notes only; turn into operation docs after implementation and validation.
-
-## Local Preview
+## Quick start
 
 ```bash
-python -m pip install -e ".[docs]"
-mkdocs serve
+python -m pip install -e .
+chatdemo serve --port 8769
 ```
 
-The Chinese home page is available at <https://arch.gh.wzhecnu.cn/ChatDemo/>. Topic pages without English translations fall back to the default Chinese content through the i18n plugin.
+Open `http://127.0.0.1:8769/`. The default server binds to loopback; stop with Ctrl+C.
+
+| Documentation | Contents |
+| --- | --- |
+| Demonstrations | Bundled interactive pages and browsing |
+| CLI tree | Real commands, parameters and workflows |
+| Capability map | Static serving boundaries and deployment |
+| Python API tree | Importable catalog and HTTP functions |
+
+Web hosting is available in the 0.0.3 source version; install from its repository root. Published PyPI 0.0.2 is the release-workflow template. PyPI installation of Web commands requires the 0.0.3 release.
