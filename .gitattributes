@@ -1,0 +1,2 @@
+# Preserve upstream JavaScript verbatim, including its indentation conventions.
+src/chatdemo/web/mechanical-atelier/vendor/*.js -whitespace
