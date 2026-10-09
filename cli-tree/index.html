@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://arch.gh.wzhecnu.cn/ChatDemo/cli-tree/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../gallery/">
       
       
         <link rel="next" href="../capability-map/">
@@ -237,6 +237,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  作品入口
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -331,6 +350,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    作品入口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -352,10 +398,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -373,8 +419,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -454,7 +500,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        顶层命令
+        目录管理
       
     </span>
   </a>
@@ -465,40 +511,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        基础入口
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        业务命令槽位
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        状态约定
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现合约
+        浏览和部署
       
     </span>
   </a>
@@ -607,7 +620,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        顶层命令
+        目录管理
       
     </span>
   </a>
@@ -618,40 +631,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        基础入口
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        业务命令槽位
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        状态约定
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现合约
+        浏览和部署
       
     </span>
   </a>
@@ -683,58 +663,78 @@
   
 
 
-<h1 id="cli">CLI 能力地图<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h1>
-<p>这篇文档是 <code>ChatDemo</code> CLI 的简明能力地图，用来校对哪些命令已经是一等入口、哪些仍然只是边界或规划。生成后请按真实命令树更新；不要把未实现命令写成已可用操作。</p>
-<p>可导入 Python 函数映射见 <a href="../interface-tree/">接口树</a>。当前包能力边界见 <a href="../capability-map/">能力地图</a>。</p>
-<h2 id="_1">顶层命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>chatdemo                  # ChatDemo 命令行入口
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── --help                     # 显示 CLI 帮助和已注册命令
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── --version                  # 输出当前包版本
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── --tree                     # 输出真实已注册 CLI 树和参数签名
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── --tree-brief               # 输出命令节点和描述，不含参数签名
+<h1 id="cli">CLI 树<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>chatdemo
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>+-- --help                 # 显示帮助
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+-- --version              # 输出版本
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+-- --tree                 # 注册命令与参数树
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+-- --tree-brief           # 简明命令树
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>+-- --home PATH            # 指定目录注册表位置
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+-- list [--json-output]   # 列出内置和自定义作品
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>+-- add DIRECTORY         # 注册含 index.html 的静态目录
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+-- remove SLUG           # 取消自定义作品注册，保留源文件
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>+-- serve                 # 启动 HTTP 画廊
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+-- export DESTINATION    # 导出到空目录
 </code></pre></div>
-<h2 id="_2">基础入口<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chatdemo --help           # 验证命令已安装，并查看当前命令树
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>chatdemo --version        # 验证当前安装版本
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>chatdemo --tree           # 回读带参数签名的真实 CLI contract
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>chatdemo --tree-brief     # 回读不含参数签名的简明命令树
-</code></pre></div>
-<p><code>--help</code>、<code>--version</code>、<code>--tree</code> 和 <code>--tree-brief</code> 是模板默认可验证入口。两个树选项由 ChatStyle 的 <code>add_tree_option()</code> 提供；默认树保留参数签名，简明树只保留命令节点和描述。新增业务命令后，应像 ChatTea 的 CLI 树一样，把命令组单独展开，并给每个命令写一行注释。</p>
-<h2 id="_3">业务命令槽位<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chatdemo &lt;group&gt;          # 按当前包真实能力命名的命令组
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── &lt;command&gt;                  # 说明这个命令做什么
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── &lt;command&gt;                  # 说明状态、边界或 checkpoint
-</code></pre></div>
-<p>这里是占位槽位，不是未来能力承诺。只有当命令、Python 函数和测试都存在时，才把它写成已实现入口。</p>
-<h2 id="_4">状态约定<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_1">目录管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>状态</th>
-<th>含义</th>
+<th>命令</th>
+<th>必要输入</th>
+<th>效果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>已实现</td>
-<td>命令、函数和测试已经存在</td>
+<td><code>list</code></td>
+<td>无</td>
+<td>列出作品；<code>--json-output</code> 输出结构化元数据</td>
 </tr>
 <tr>
-<td>已验证</td>
-<td>已通过 CI、本地 smoke 或真实服务实践</td>
+<td><code>add DIRECTORY</code></td>
+<td><code>--slug</code>、<code>--title</code></td>
+<td>注册公开素材目录；可加 <code>--description</code></td>
 </tr>
 <tr>
-<td>规划 / checkpoint</td>
-<td>只保留边界说明；实现前不要写操作教程</td>
+<td><code>remove SLUG</code></td>
+<td>自定义作品标识</td>
+<td>仅取消注册；不能移除内置作品</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_5">实现合约<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>每个已实现命令都要能追到 Python 函数、类或 service 层。</li>
-<li>如果命令会写远端状态，文档必须说明凭据、权限、dry-run/checkpoint 或确认边界。</li>
-<li>新增命令时，同步更新 README、接口树、能力地图、测试和相关 Flow 页面。</li>
-</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chatdemo<span class="w"> </span>--home<span class="w"> </span>./catalog<span class="w"> </span>add<span class="w"> </span>./public<span class="w"> </span>--slug<span class="w"> </span>my-demo<span class="w"> </span>--title<span class="w"> </span>我的作品
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>chatdemo<span class="w"> </span>--home<span class="w"> </span>./catalog<span class="w"> </span>list<span class="w"> </span>--json-output
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>chatdemo<span class="w"> </span>--home<span class="w"> </span>./catalog<span class="w"> </span>remove<span class="w"> </span>my-demo
+</code></pre></div>
+<p>slug 使用小写字母、数字和单个连字符。目录必须含 <code>index.html</code>，禁止隐藏素材或符号链接。必填输入缺失直接返回非零状态；注册和移除不修改源文件。服务启动时读取目录，更新目录后重启服务。</p>
+<h2 id="_2">浏览和部署<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>参数</th>
+<th>默认行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>serve</code></td>
+<td><code>--host</code>、<code>--port</code></td>
+<td>监听 <code>127.0.0.1:8769</code>；不提供账户认证</td>
+</tr>
+<tr>
+<td><code>export DESTINATION</code></td>
+<td>空的输出目录</td>
+<td>完整画廊、元数据和所有静态资源</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chatdemo<span class="w"> </span>serve<span class="w"> </span>--port<span class="w"> </span><span class="m">8769</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>chatdemo<span class="w"> </span><span class="nb">export</span><span class="w"> </span>./site-output
+</code></pre></div>
+<p>如需局域网访问，显式指定 <code>--host 0.0.0.0</code>。只注册可以公开的素材；目录下所有非隐藏静态文件可被访问。导出不会覆盖已有目录内容，使用相对链接支持站点子路径。公网发布由静态平台负责，<code>export</code> 不创建远端部署。</p>
+<p><code>add</code>、<code>remove</code> 和 <code>export</code> 支持 ChatStyle 的 <code>-i/-I</code> 交互模式。TTY 下缺失可恢复输入时自动询问；<code>-I</code> 或 <code>CHATARCH_AUTO_PROMPT=0</code> 禁用自动询问，缺失输入返回非零状态。输入从参数和交互模式进入同一套目录/标识验证。</p>
 
 
 

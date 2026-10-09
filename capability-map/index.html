@@ -237,6 +237,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  作品入口
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -331,6 +350,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    作品入口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -352,10 +398,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -373,8 +419,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -482,29 +528,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        能力分组
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        当前边界
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        不在当前范围
+        约束
       
     </span>
   </a>
@@ -585,29 +609,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        能力分组
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        当前边界
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        不在当前范围
+        约束
       
     </span>
   </a>
@@ -640,57 +642,55 @@
 
 
 <h1 id="_1">能力地图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>这个页面用于校对 <code>ChatDemo</code> 当前有哪些一等能力、哪些能力已经验证，以及哪些事情不属于当前包。</p>
-<h2 id="_2">能力分组<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
 <li>
-<p><strong>命令行入口</strong></p>
-<p><code>chatdemo --help</code>、<code>chatdemo --version</code>、<code>chatdemo --tree</code> 和 <code>chatdemo --tree-brief</code> 是默认可验证入口。</p>
+<p><strong>作品目录</strong></p>
+<p>管理内置作品和显式注册的静态目录；元数据可输出为 JSON。</p>
 </li>
 <li>
-<p><strong>Python 接口</strong></p>
-<p>实质能力应放到可 import 的 Python 函数、类或 service 层，而不是只写在 Click 回调里。</p>
+<p><strong>HTTP 画廊</strong></p>
+<p>默认只监听本机；仅提供画廊和注册根目录里的资源。</p>
 </li>
 <li>
-<p><strong>配置与环境</strong></p>
-<p>默认接入 ChatEnv；长期、常用、跨命令共享的配置放入 <code>config.py</code>。</p>
+<p><strong>静态导出</strong></p>
+<p>复制所有页面与依赖，生成适合子路径托管的完整站点。</p>
 </li>
 </ul>
 </div>
-<h2 id="_3">当前边界<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>能力</th>
-<th>状态</th>
-<th>说明</th>
+<th>范围</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>命令行基础入口</td>
-<td>已实现</td>
-<td>模板生成 Click group、<code>--version</code>、ChatStyle 共享树选项和基础测试。</td>
+<td>三种机械原型</td>
+<td>内置 Three.js 依赖；旋转、速度、拆解、暂停、单步</td>
 </tr>
 <tr>
-<td>ChatEnv 配置提供者</td>
-<td>已实现</td>
-<td>默认生成 <code>config.py</code> 和 <code>chatenv.configs</code> 入口点。</td>
+<td>自定义网页</td>
+<td>注册已经构建完成、以 index.html 为入口的素材目录</td>
 </tr>
 <tr>
-<td>业务命令</td>
-<td>未实现</td>
-<td>按当前包真实需求补充，不能在模板里伪造未来命令。</td>
+<td>访问边界</td>
+<td>禁止路径穿越、隐藏文件、符号链接和目录列表</td>
+</tr>
+<tr>
+<td>配置</td>
+<td>作品注册表是应用数据；无 API 密钥需求；保留 ChatEnv schema 入口</td>
+</tr>
+<tr>
+<td>文档作品入口</td>
+<td>文档构建时导出内置画廊，生产和预览使用相同构建规则</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">不在当前范围<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>不生成计划类占位页。</li>
-<li>不把未实现能力写成用户可执行教程。</li>
-<li>不在 README、docs、issue、PR 评论或 CI log 中输出 secret、token、cookie 或 Authorization header。</li>
-</ul>
+<h2 id="_2">约束<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>这是面向本机与可信素材的演示服务器，不提供认证、TLS、多用户写入或后端进程。目录不得混放凭据、私密文档和未准备公开的素材。带绝对资源 URL 的自定义网页需要自行改为适合目标部署的路径；导出不重写脚本。</p>
+<p>浏览器需要支持 WebGL 才能运行机械页。机械是可观察的视觉原型，不代表真实机械已经制造或通过物理验证。</p>
 
 
 

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ChatDemo · 作品放映室</title>
+  <style>
+    :root{--paper:#f3efe4;--ink:#183c39;--accent:#bc5c35;--line:#c8c7b8}
+    *{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(ellipse at 95% 0%,#d0dccb88,transparent 55%),repeating-linear-gradient(0deg,transparent 0 5px,#183c3904 5px 6px),var(--paper);font-family:"Songti SC","Noto Serif CJK SC",Georgia,serif;min-height:100vh}
+    main{max-width:1200px;margin:auto;padding:44px 6vw}header{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:18px;letter-spacing:.08em}header a{color:inherit;font-size:14px}small,.tag,.edition{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.12em}
+    .intro{padding:62px 0 42px;max-width:850px}.intro small{color:var(--accent)}h1{font-weight:500;font-size:clamp(42px,6.5vw,82px);line-height:1.15;letter-spacing:-.04em;margin:18px 0 25px}.intro p{font-size:18px;line-height:1.9;max-width:670px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}.card{color:inherit;text-decoration:none;background:#fff9;border:1px solid var(--line);padding:32px;min-height:270px;display:flex;flex-direction:column;animation:reveal .6s both;position:relative}.card:before{content:"";height:4px;width:44px;background:var(--accent);position:absolute;top:0;left:32px}.card:hover,.card:focus-visible{border-color:var(--accent);background:#fffd}.tag{color:var(--accent)}h2{font-size:27px;font-weight:500;line-height:1.4;margin:24px 0 10px}.card p{line-height:1.8;font-size:16px}.open{margin-top:auto;padding-top:22px;font-size:15px}footer{border-top:1px solid var(--line);margin-top:54px;padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:13px;line-height:1.8}
+    @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@media(max-width:600px){main{padding:28px 24px}.intro{padding:42px 0 25px}header .edition{display:none}footer{display:block}.card{padding:26px}}@media(prefers-reduced-motion:reduce){.card{animation:none}}
+  </style>
+</head>
+<body><main>
+  <header><b>CHATDEMO / 作品放映室</b><span class="edition">CHATARCH · WEB COLLECTION</span><a href="https://arch.gh.wzhecnu.cn/ChatDemo/">使用说明 ↗</a></header>
+  <section class="intro"><small>IDEAS, MADE VISIBLE.</small><h1>把想法做出来。<br>把作品打开看。</h1><p>这里收录可直接操作的网页作品。选择一个演示，观察变化、调整参数，在交互中理解设计。</p></section>
+  <section class="grid" aria-label="网页演示作品"><a class="card" href="./demos/mechanical-atelier/"><span class="tag">BUILT-IN</span><h2>机巧 · 三种机械设计</h2><p>六瓣星轮、双摆擒纵与行星差速：可旋转、拆解、暂停和单步观察。</p><span class="open">打开演示 &rarr;</span></a></section>
+  <footer><span>由 ChatDemo 提供页面入口与静态资源服务。</span><span>探索 · 观察 · 验证</span></footer>
+</main></body></html>

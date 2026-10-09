@@ -237,6 +237,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Demonstrations
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -331,6 +350,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demonstrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -352,10 +398,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -373,8 +419,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -479,32 +525,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#capability-groups" class="md-nav__link">
+  <a href="#limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Capability Groups
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-boundary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Boundary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#out-of-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Out of Scope
+        Limits
       
     </span>
   </a>
@@ -582,32 +606,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#capability-groups" class="md-nav__link">
+  <a href="#limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Capability Groups
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-boundary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Boundary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#out-of-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Out of Scope
+        Limits
       
     </span>
   </a>
@@ -639,58 +641,56 @@
   
 
 
-<h1 id="capability-map">Capability Map<a class="headerlink" href="#capability-map" title="Permanent link">&para;</a></h1>
-<p>Use this page to check which first-class capabilities <code>ChatDemo</code> currently owns, which ones are verified, and what remains out of scope for this package.</p>
-<h2 id="capability-groups">Capability Groups<a class="headerlink" href="#capability-groups" title="Permanent link">&para;</a></h2>
+<h1 id="capability-map">Capability map<a class="headerlink" href="#capability-map" title="Permanent link">&para;</a></h1>
 <div class="grid cards">
 <ul>
 <li>
-<p><strong>CLI Entry</strong></p>
-<p><code>chatdemo --help</code>, <code>chatdemo --version</code>, <code>chatdemo --tree</code>, and <code>chatdemo --tree-brief</code> are the default verification entry points.</p>
+<p><strong>Demo catalog</strong></p>
+<p>Manage bundled demos and explicitly registered static roots; emit JSON metadata.</p>
 </li>
 <li>
-<p><strong>Python API</strong></p>
-<p>Substantive behavior should live in importable Python functions, classes, or service layers rather than only in Click callbacks.</p>
+<p><strong>HTTP gallery</strong></p>
+<p>Bind to loopback by default and serve only gallery and registered roots.</p>
 </li>
 <li>
-<p><strong>Config and Environment</strong></p>
-<p>ChatEnv integration is enabled by default; stable, shared configuration belongs in <code>config.py</code>.</p>
+<p><strong>Static export</strong></p>
+<p>Copy pages and dependencies into a self-contained, subpath-ready site.</p>
 </li>
 </ul>
 </div>
-<h2 id="current-boundary">Current Boundary<a class="headerlink" href="#current-boundary" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Capability</th>
-<th>Status</th>
-<th>Notes</th>
+<th>Scope</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CLI base entry</td>
-<td>Implemented</td>
-<td>The template generates a Click group, <code>--version</code>, shared ChatStyle tree options, and base tests.</td>
+<td>Three mechanical prototypes</td>
+<td>Bundled Three.js; rotate, adjust speed, explode, pause and step</td>
 </tr>
 <tr>
-<td>ChatEnv provider</td>
-<td>Implemented</td>
-<td>The template generates <code>config.py</code> and a <code>chatenv.configs</code> entry point.</td>
+<td>Custom pages</td>
+<td>Already-built static directories with an index.html entry</td>
 </tr>
 <tr>
-<td>Business commands</td>
-<td>Not implemented</td>
-<td>Add these from the real package domain; do not fake future commands in the template.</td>
+<td>Access boundaries</td>
+<td>Reject traversal, hidden assets, symbolic links and directory listing</td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>Catalog is application data; no API key required; ChatEnv schema retained</td>
+</tr>
+<tr>
+<td>Documentation gallery</td>
+<td>Build hook exports bundled assets consistently for production and preview</td>
 </tr>
 </tbody>
 </table>
-<h2 id="out-of-scope">Out of Scope<a class="headerlink" href="#out-of-scope" title="Permanent link">&para;</a></h2>
-<ul>
-<li>No plan placeholder page is generated.</li>
-<li>No unimplemented capability should be written as a user operation tutorial.</li>
-<li>No secret, token, cookie, or Authorization header should appear in README, docs, issues, PR comments, or CI logs.</li>
-</ul>
+<h2 id="limits">Limits<a class="headerlink" href="#limits" title="Permanent link">&para;</a></h2>
+<p>The server is intended for local demos and trusted assets. It does not provide authentication, TLS, multi-user writes or backend execution. Keep credentials and private documents out of registered roots. Custom pages with absolute asset paths must be adapted for their target host; export does not rewrite scripts.</p>
+<p>Mechanical pages require WebGL. They are visual prototypes, not manufactured or physically verified machines.</p>
 
 
 

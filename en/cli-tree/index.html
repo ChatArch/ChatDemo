@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://arch.gh.wzhecnu.cn/ChatDemo/en/cli-tree/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../gallery/">
       
       
         <link rel="next" href="../capability-map/">
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cli-capability-map" class="md-skip">
+        <a href="#cli-tree" class="md-skip">
           Skip to content
         </a>
       
@@ -237,6 +237,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Demonstrations
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -331,6 +350,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demonstrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -352,10 +398,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -373,8 +419,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -451,10 +497,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#top-level-commands" class="md-nav__link">
+  <a href="#catalog-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-Level Commands
+        Catalog management
       
     </span>
   </a>
@@ -462,43 +508,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#base-entries" class="md-nav__link">
+  <a href="#browsing-and-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Base Entries
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-command-slots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Business Command Slots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status Contract
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementation Contract
+        Browsing and deployment
       
     </span>
   </a>
@@ -604,10 +617,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#top-level-commands" class="md-nav__link">
+  <a href="#catalog-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-Level Commands
+        Catalog management
       
     </span>
   </a>
@@ -615,43 +628,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#base-entries" class="md-nav__link">
+  <a href="#browsing-and-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Base Entries
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#business-command-slots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Business Command Slots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status Contract
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementation Contract
+        Browsing and deployment
       
     </span>
   </a>
@@ -683,58 +663,78 @@
   
 
 
-<h1 id="cli-capability-map">CLI Capability Map<a class="headerlink" href="#cli-capability-map" title="Permanent link">&para;</a></h1>
-<p>This page is the compact capability map for the <code>ChatDemo</code> CLI. Use it to review which commands are first-class entries and which are still boundary or planned slots. After scaffolding, update it with the real command tree; do not present unimplemented commands as available operations.</p>
-<p>Importable Python functions are mapped in <a href="../interface-tree/">Interface Tree</a>. Current package boundaries are tracked in <a href="../capability-map/">Capability Map</a>.</p>
-<h2 id="top-level-commands">Top-Level Commands<a class="headerlink" href="#top-level-commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>chatdemo                  # ChatDemo command-line entry
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── --help                     # Show CLI help and registered commands
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── --version                  # Print the current package version
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── --tree                     # Print the registered CLI tree with parameter signatures
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── --tree-brief               # Print command nodes and descriptions without signatures
+<h1 id="cli-tree">CLI tree<a class="headerlink" href="#cli-tree" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>chatdemo
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>+-- --help                 # Show help
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+-- --version              # Print version
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+-- --tree                 # Registered commands and parameters
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+-- --tree-brief           # Compact tree
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>+-- --home PATH            # Local catalog location
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+-- list [--json-output]   # List bundled and registered demos
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>+-- add DIRECTORY         # Register a directory containing index.html
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+-- remove SLUG           # Unregister a custom demo, preserving its source
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>+-- serve                 # Start an HTTP gallery
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+-- export DESTINATION    # Export to an empty directory
 </code></pre></div>
-<h2 id="base-entries">Base Entries<a class="headerlink" href="#base-entries" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chatdemo --help           # Verify the command is installed and inspect the current command tree
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>chatdemo --version        # Verify the installed version
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>chatdemo --tree           # Read back the CLI contract with parameter signatures
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>chatdemo --tree-brief     # Read back command nodes and descriptions only
-</code></pre></div>
-<p><code>--help</code>, <code>--version</code>, <code>--tree</code>, and <code>--tree-brief</code> are the scaffolded verification entries. ChatStyle's <code>add_tree_option()</code> provides both tree flags: the default tree keeps parameter signatures, while the brief tree keeps only command nodes and descriptions. After adding business commands, follow the ChatTea CLI tree pattern: split command groups into their own sections and annotate every command line.</p>
-<h2 id="business-command-slots">Business Command Slots<a class="headerlink" href="#business-command-slots" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chatdemo &lt;group&gt;          # Command group named after real package capability
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── &lt;command&gt;                  # Explain what this command does
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── &lt;command&gt;                  # Explain status, boundary, or checkpoint behavior
-</code></pre></div>
-<p>This is a structural placeholder, not a promise of future capability. Only document a command as implemented after the command, Python function, and tests exist.</p>
-<h2 id="status-contract">Status Contract<a class="headerlink" href="#status-contract" title="Permanent link">&para;</a></h2>
+<h2 id="catalog-management">Catalog management<a class="headerlink" href="#catalog-management" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Status</th>
-<th>Meaning</th>
+<th>Command</th>
+<th>Required input</th>
+<th>Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Implemented</td>
-<td>Command, function, and tests exist</td>
+<td><code>list</code></td>
+<td>None</td>
+<td>List demos; <code>--json-output</code> emits structured metadata</td>
 </tr>
 <tr>
-<td>Verified</td>
-<td>Covered by CI, local smoke, or real-service practice</td>
+<td><code>add DIRECTORY</code></td>
+<td><code>--slug</code>, <code>--title</code></td>
+<td>Register public assets; optional <code>--description</code></td>
 </tr>
 <tr>
-<td>Planned / checkpoint</td>
-<td>Keep only boundary notes; do not write operation tutorials before implementation</td>
+<td><code>remove SLUG</code></td>
+<td>Custom slug</td>
+<td>Unregister only; bundled demos cannot be removed</td>
 </tr>
 </tbody>
 </table>
-<h2 id="implementation-contract">Implementation Contract<a class="headerlink" href="#implementation-contract" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Every implemented command must map back to a Python function, class, or service layer.</li>
-<li>If a command writes remote state, document credentials, permissions, dry-run/checkpoint behavior, or confirmation boundaries.</li>
-<li>When adding a command, update README, the interface tree, capability map, tests, and related flow pages together.</li>
-</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chatdemo<span class="w"> </span>--home<span class="w"> </span>./catalog<span class="w"> </span>add<span class="w"> </span>./public<span class="w"> </span>--slug<span class="w"> </span>my-demo<span class="w"> </span>--title<span class="w"> </span><span class="s2">"My demo"</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>chatdemo<span class="w"> </span>--home<span class="w"> </span>./catalog<span class="w"> </span>list<span class="w"> </span>--json-output
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>chatdemo<span class="w"> </span>--home<span class="w"> </span>./catalog<span class="w"> </span>remove<span class="w"> </span>my-demo
+</code></pre></div>
+<p>Slugs use lowercase letters, digits and single hyphens. Directories require <code>index.html</code> and may not contain hidden assets or symbolic links. Missing required inputs fail without prompting. Registration and removal preserve sources. Restart the server after catalog changes.</p>
+<h2 id="browsing-and-deployment">Browsing and deployment<a class="headerlink" href="#browsing-and-deployment" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Options</th>
+<th>Default behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>serve</code></td>
+<td><code>--host</code>, <code>--port</code></td>
+<td>Bind <code>127.0.0.1:8769</code>; no account authentication</td>
+</tr>
+<tr>
+<td><code>export DESTINATION</code></td>
+<td>Empty destination</td>
+<td>Complete gallery, metadata and static assets</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chatdemo<span class="w"> </span>serve<span class="w"> </span>--port<span class="w"> </span><span class="m">8769</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>chatdemo<span class="w"> </span><span class="nb">export</span><span class="w"> </span>./site-output
+</code></pre></div>
+<p>Use <code>--host 0.0.0.0</code> explicitly for LAN access. Every non-hidden file under registered roots is public. Exports refuse to overwrite existing content and use relative links for subpath hosting. A static platform owns public deployment; <code>export</code> creates no remote service.</p>
+<p><code>add</code>, <code>remove</code> and <code>export</code> use ChatStyle <code>-i/-I</code> interaction. Missing recoverable inputs prompt in a TTY. <code>-I</code> or <code>CHATARCH_AUTO_PROMPT=0</code> disables automatic prompting and fails on missing inputs. Both paths use the same catalog validation.</p>
 
 
 
