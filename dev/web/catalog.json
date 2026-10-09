@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "mechanical-atelier",
+    "title": "机巧 · 三种机械设计",
+    "description": "六瓣星轮、双摆擒纵与行星差速：可旋转、拆解、暂停和单步观察。",
+    "url_path": "/demos/mechanical-atelier/",
+    "builtin": true
+  }
+]
