@@ -1,35 +1,31 @@
-# Capability Map
-
-Use this page to check which first-class capabilities `ChatDemo` currently owns, which ones are verified, and what remains out of scope for this package.
-
-## Capability Groups
+# Capability map
 
 <div class="grid cards" markdown>
 
-- **CLI Entry**
+- **Demo catalog**
 
-    `chatdemo --help`, `chatdemo --version`, `chatdemo --tree`, and `chatdemo --tree-brief` are the default verification entry points.
+    Manage bundled demos and explicitly registered static roots; emit JSON metadata.
 
-- **Python API**
+- **HTTP gallery**
 
-    Substantive behavior should live in importable Python functions, classes, or service layers rather than only in Click callbacks.
+    Bind to loopback by default and serve only gallery and registered roots.
 
-- **Config and Environment**
+- **Static export**
 
-    ChatEnv integration is enabled by default; stable, shared configuration belongs in `config.py`.
+    Copy pages and dependencies into a self-contained, subpath-ready site.
 
 </div>
 
-## Current Boundary
+| Capability | Scope |
+| --- | --- |
+| Three mechanical prototypes | Bundled Three.js; rotate, adjust speed, explode, pause and step |
+| Custom pages | Already-built static directories with an index.html entry |
+| Access boundaries | Reject traversal, hidden assets, symbolic links and directory listing |
+| Configuration | Catalog is application data; no API key required; ChatEnv schema retained |
+| Documentation gallery | Build hook exports bundled assets consistently for production and preview |
 
-| Capability | Status | Notes |
-| --- | --- | --- |
-| CLI base entry | Implemented | The template generates a Click group, `--version`, shared ChatStyle tree options, and base tests. |
-| ChatEnv provider | Implemented | The template generates `config.py` and a `chatenv.configs` entry point. |
-| Business commands | Not implemented | Add these from the real package domain; do not fake future commands in the template. |
+## Limits
 
-## Out of Scope
+The server is intended for local demos and trusted assets. It does not provide authentication, TLS, multi-user writes or backend execution. Keep credentials and private documents out of registered roots. Custom pages with absolute asset paths must be adapted for their target host; export does not rewrite scripts.
 
-- No plan placeholder page is generated.
-- No unimplemented capability should be written as a user operation tutorial.
-- No secret, token, cookie, or Authorization header should appear in README, docs, issues, PR comments, or CI logs.
+Mechanical pages require WebGL. They are visual prototypes, not manufactured or physically verified machines.

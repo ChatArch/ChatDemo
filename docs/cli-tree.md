@@ -1,50 +1,47 @@
-# CLI 能力地图
-
-这篇文档是 `ChatDemo` CLI 的简明能力地图，用来校对哪些命令已经是一等入口、哪些仍然只是边界或规划。生成后请按真实命令树更新；不要把未实现命令写成已可用操作。
-
-可导入 Python 函数映射见 [接口树](interface-tree.md)。当前包能力边界见 [能力地图](capability-map.md)。
-
-## 顶层命令
+# CLI 树
 
 ```text
-chatdemo                  # ChatDemo 命令行入口
-├── --help                     # 显示 CLI 帮助和已注册命令
-├── --version                  # 输出当前包版本
-├── --tree                     # 输出真实已注册 CLI 树和参数签名
-└── --tree-brief               # 输出命令节点和描述，不含参数签名
+chatdemo
++-- --help                 # 显示帮助
++-- --version              # 输出版本
++-- --tree                 # 注册命令与参数树
++-- --tree-brief           # 简明命令树
++-- --home PATH            # 指定目录注册表位置
++-- list [--json-output]   # 列出内置和自定义作品
++-- add DIRECTORY         # 注册含 index.html 的静态目录
++-- remove SLUG           # 取消自定义作品注册，保留源文件
++-- serve                 # 启动 HTTP 画廊
++-- export DESTINATION    # 导出到空目录
 ```
 
-## 基础入口
+## 目录管理
 
-```text
-chatdemo --help           # 验证命令已安装，并查看当前命令树
-chatdemo --version        # 验证当前安装版本
-chatdemo --tree           # 回读带参数签名的真实 CLI contract
-chatdemo --tree-brief     # 回读不含参数签名的简明命令树
+| 命令 | 必要输入 | 效果 |
+| --- | --- | --- |
+| `list` | 无 | 列出作品；`--json-output` 输出结构化元数据 |
+| `add DIRECTORY` | `--slug`、`--title` | 注册公开素材目录；可加 `--description` |
+| `remove SLUG` | 自定义作品标识 | 仅取消注册；不能移除内置作品 |
+
+```bash
+chatdemo --home ./catalog add ./public --slug my-demo --title 我的作品
+chatdemo --home ./catalog list --json-output
+chatdemo --home ./catalog remove my-demo
 ```
 
-`--help`、`--version`、`--tree` 和 `--tree-brief` 是模板默认可验证入口。两个树选项由 ChatStyle 的 `add_tree_option()` 提供；默认树保留参数签名，简明树只保留命令节点和描述。新增业务命令后，应像 ChatTea 的 CLI 树一样，把命令组单独展开，并给每个命令写一行注释。
+slug 使用小写字母、数字和单个连字符。目录必须含 `index.html`，禁止隐藏素材或符号链接。必填输入缺失直接返回非零状态；注册和移除不修改源文件。服务启动时读取目录，更新目录后重启服务。
 
-## 业务命令槽位
+## 浏览和部署
 
-```text
-chatdemo <group>          # 按当前包真实能力命名的命令组
-├── <command>                  # 说明这个命令做什么
-└── <command>                  # 说明状态、边界或 checkpoint
+| 命令 | 参数 | 默认行为 |
+| --- | --- | --- |
+| `serve` | `--host`、`--port` | 监听 `127.0.0.1:8769`；不提供账户认证 |
+| `export DESTINATION` | 空的输出目录 | 完整画廊、元数据和所有静态资源 |
+
+```bash
+chatdemo serve --port 8769
+chatdemo export ./site-output
 ```
 
-这里是占位槽位，不是未来能力承诺。只有当命令、Python 函数和测试都存在时，才把它写成已实现入口。
+如需局域网访问，显式指定 `--host 0.0.0.0`。只注册可以公开的素材；目录下所有非隐藏静态文件可被访问。导出不会覆盖已有目录内容，使用相对链接支持站点子路径。公网发布由静态平台负责，`export` 不创建远端部署。
 
-## 状态约定
-
-| 状态 | 含义 |
-| --- | --- |
-| 已实现 | 命令、函数和测试已经存在 |
-| 已验证 | 已通过 CI、本地 smoke 或真实服务实践 |
-| 规划 / checkpoint | 只保留边界说明；实现前不要写操作教程 |
-
-## 实现合约
-
-- 每个已实现命令都要能追到 Python 函数、类或 service 层。
-- 如果命令会写远端状态，文档必须说明凭据、权限、dry-run/checkpoint 或确认边界。
-- 新增命令时，同步更新 README、接口树、能力地图、测试和相关 Flow 页面。
+`add`、`remove` 和 `export` 支持 ChatStyle 的 `-i/-I` 交互模式。TTY 下缺失可恢复输入时自动询问；`-I` 或 `CHATARCH_AUTO_PROMPT=0` 禁用自动询问，缺失输入返回非零状态。输入从参数和交互模式进入同一套目录/标识验证。

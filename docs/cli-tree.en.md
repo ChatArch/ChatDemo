@@ -1,50 +1,47 @@
-# CLI Capability Map
-
-This page is the compact capability map for the `ChatDemo` CLI. Use it to review which commands are first-class entries and which are still boundary or planned slots. After scaffolding, update it with the real command tree; do not present unimplemented commands as available operations.
-
-Importable Python functions are mapped in [Interface Tree](interface-tree.md). Current package boundaries are tracked in [Capability Map](capability-map.md).
-
-## Top-Level Commands
+# CLI tree
 
 ```text
-chatdemo                  # ChatDemo command-line entry
-├── --help                     # Show CLI help and registered commands
-├── --version                  # Print the current package version
-├── --tree                     # Print the registered CLI tree with parameter signatures
-└── --tree-brief               # Print command nodes and descriptions without signatures
+chatdemo
++-- --help                 # Show help
++-- --version              # Print version
++-- --tree                 # Registered commands and parameters
++-- --tree-brief           # Compact tree
++-- --home PATH            # Local catalog location
++-- list [--json-output]   # List bundled and registered demos
++-- add DIRECTORY         # Register a directory containing index.html
++-- remove SLUG           # Unregister a custom demo, preserving its source
++-- serve                 # Start an HTTP gallery
++-- export DESTINATION    # Export to an empty directory
 ```
 
-## Base Entries
+## Catalog management
 
-```text
-chatdemo --help           # Verify the command is installed and inspect the current command tree
-chatdemo --version        # Verify the installed version
-chatdemo --tree           # Read back the CLI contract with parameter signatures
-chatdemo --tree-brief     # Read back command nodes and descriptions only
+| Command | Required input | Result |
+| --- | --- | --- |
+| `list` | None | List demos; `--json-output` emits structured metadata |
+| `add DIRECTORY` | `--slug`, `--title` | Register public assets; optional `--description` |
+| `remove SLUG` | Custom slug | Unregister only; bundled demos cannot be removed |
+
+```bash
+chatdemo --home ./catalog add ./public --slug my-demo --title "My demo"
+chatdemo --home ./catalog list --json-output
+chatdemo --home ./catalog remove my-demo
 ```
 
-`--help`, `--version`, `--tree`, and `--tree-brief` are the scaffolded verification entries. ChatStyle's `add_tree_option()` provides both tree flags: the default tree keeps parameter signatures, while the brief tree keeps only command nodes and descriptions. After adding business commands, follow the ChatTea CLI tree pattern: split command groups into their own sections and annotate every command line.
+Slugs use lowercase letters, digits and single hyphens. Directories require `index.html` and may not contain hidden assets or symbolic links. Missing required inputs fail without prompting. Registration and removal preserve sources. Restart the server after catalog changes.
 
-## Business Command Slots
+## Browsing and deployment
 
-```text
-chatdemo <group>          # Command group named after real package capability
-├── <command>                  # Explain what this command does
-└── <command>                  # Explain status, boundary, or checkpoint behavior
+| Command | Options | Default behavior |
+| --- | --- | --- |
+| `serve` | `--host`, `--port` | Bind `127.0.0.1:8769`; no account authentication |
+| `export DESTINATION` | Empty destination | Complete gallery, metadata and static assets |
+
+```bash
+chatdemo serve --port 8769
+chatdemo export ./site-output
 ```
 
-This is a structural placeholder, not a promise of future capability. Only document a command as implemented after the command, Python function, and tests exist.
+Use `--host 0.0.0.0` explicitly for LAN access. Every non-hidden file under registered roots is public. Exports refuse to overwrite existing content and use relative links for subpath hosting. A static platform owns public deployment; `export` creates no remote service.
 
-## Status Contract
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | Command, function, and tests exist |
-| Verified | Covered by CI, local smoke, or real-service practice |
-| Planned / checkpoint | Keep only boundary notes; do not write operation tutorials before implementation |
-
-## Implementation Contract
-
-- Every implemented command must map back to a Python function, class, or service layer.
-- If a command writes remote state, document credentials, permissions, dry-run/checkpoint behavior, or confirmation boundaries.
-- When adding a command, update README, the interface tree, capability map, tests, and related flow pages together.
+`add`, `remove` and `export` use ChatStyle `-i/-I` interaction. Missing recoverable inputs prompt in a TTY. `-I` or `CHATARCH_AUTO_PROMPT=0` disables automatic prompting and fails on missing inputs. Both paths use the same catalog validation.
